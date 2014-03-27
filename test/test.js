@@ -26,7 +26,7 @@ function run() {
     phantomEval(url, function() {
       return { test: 'thing' }
     }, function(err, data) {
-      if (err) console.log(err)
+      if (err) console.error(err)
       t.equal(data.test, 'thing')
     })
   })
@@ -36,7 +36,7 @@ function run() {
     phantomEval(url, function() {
       return JSON.stringify({ test: 'thing' })
     }, function(err, data) {
-      if (err) console.log(err)
+      if (err) console.error(err)
       t.equal(JSON.parse(data).test, 'thing')
     })
   })
@@ -47,7 +47,7 @@ function run() {
       var Router = App.__container__.lookup('router:main')
       return Ember.keys(Router.router.recognizer.names)
     }, function(err, data) {
-      if (err) console.log(err)
+      if (err) console.error(err)
       t.deepEqual(data, ['loading', 'error', 'test', 'another', 'index'])
     })
   })
@@ -68,7 +68,7 @@ function run() {
         return a + b
       }, 0)
     }, function(err, data) {
-      if (err) console.log(err)
+      if (err) console.error(err)
       t.equal(data, 10)
     })
   })
@@ -78,7 +78,7 @@ function run() {
     phantomEval(url, function() {
       return window.location.href
     }, function(err, data) {
-      if (err) console.log(err)
+      if (err) console.error(err)
       t.equal(data, url)
     })
   })
