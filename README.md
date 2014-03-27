@@ -2,6 +2,8 @@
 
 > Evaluate code on a URL with PhantomJS
 
+[![NPM](https://nodei.co/npm/phantom.png)](https://nodei.co/npm/phantom/)
+
 ## Usage
 
 ``` js
