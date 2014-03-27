@@ -19,10 +19,6 @@ module.exports = function(url, fn, done) {
   if (typeof fn === 'function') {
     var output = ''
     falafel('(' + fn + '("' + key + '"))', function(node) {
-      // Prefix a ; on returns for those who dont use ;
-      if (node.type === 'ReturnStatement') {
-        node.update(';' + node.source())
-      }
       // Pull out the contents of the surrounding body function
       if (isWrapper(node)) {
         for (var i = 0; i < node.body.body.length; i++) {
@@ -34,7 +30,7 @@ module.exports = function(url, fn, done) {
   }
   
   // Serialize and run phantomjs
-  fn = JSON.stringify(fn.toString().replace(/\n|\r\n/g, ''))
+  fn = JSON.stringify(fn.toString())
   execFile(binPath, [script, url, fn, key], function(err, stdout, stderr) {
     if (err || stderr) return done(err || new Error(stderr), null, stdout)
     var data = stdout.split(key).slice(1, -1).join('').replace(/\n|\r\n/g, '')
