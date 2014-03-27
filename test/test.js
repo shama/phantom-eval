@@ -5,7 +5,7 @@ var st = require('st')
 var path = require('path')
 
 var port = 1337
-var url = 'http://localhost:' + port
+var url = 'http://localhost:' + port + '/'
 var server
 
 var count = 0
@@ -49,6 +49,37 @@ function run() {
     }, function(err, data) {
       if (err) console.log(err)
       t.deepEqual(data, ['loading', 'error', 'test', 'another', 'index'])
+    })
+  })
+
+  test('should return from overly complex code', function(t) {
+    t.plan(1)
+    phantomEval(url, function() {
+      var arr = []
+      for (var i = 0; i < 10; i++) {
+        arr.push(Math.random() * 255)
+      }
+      return String.fromCharCode.apply(null, arr).split('').map(function(n) {
+        var len = function(str) {
+          return str.length
+        }
+        return len(n)
+      }).reduce(function(a, b) {
+        return a + b
+      }, 0)
+    }, function(err, data) {
+      if (err) console.log(err)
+      t.equal(data, 10)
+    })
+  })
+
+  test('should return window.location.href', function(t) {
+    t.plan(1)
+    phantomEval(url, function() {
+      return window.location.href
+    }, function(err, data) {
+      if (err) console.log(err)
+      t.equal(data, url)
     })
   })
 }
