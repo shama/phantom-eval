@@ -29,12 +29,32 @@ phantomEval('http://emberjs.com/', function() {
   // Fun way to grab the routes of any Ember app
   var view = Ember.View.views[Ember.keys(Ember.View.views)[0]]
   var Router = view.container.lookup('router:main')
-  return Ember.keys(Router.router.recognizer.names)
+  return Ember.keys(Router.router.recognizer.names).map(function(name) {
+    return { name: name, url: Router.router.generate(name) }
+  })
 
 }, function(err, data) {
 
   fs.writeFileSync('routes.json', JSON.stringify({ routes: data }, null, 2))
-  // Writes { "routes": [ "loading", "error", "index" ] }
+  /*
+    Writes the following to routes.json:
+    {
+      "routes": [
+        {
+          "name": "loading",
+          "url": "/loading"
+        },
+        {
+          "name": "error",
+          "url": "/_unused_dummy_error_path_route_application/undefined"
+        },
+        {
+          "name": "index",
+          "url": "/"
+        }
+      ]
+    }
+  */
 
 })
 ```
