@@ -21,13 +21,19 @@ Or maybe you want to write a JSON file of all the Ember routes http://emberjs.co
 ``` js
 var phantomEval = require('phantom-eval')
 var fs = require('fs')
+
 phantomEval('http://emberjs.com/', function() {
+
+  // Fun way to grab the routes of any Ember app
   var view = Ember.View.views[Ember.keys(Ember.View.views)[0]]
   var Router = view.container.lookup('router:main')
   return Ember.keys(Router.router.recognizer.names)
+
 }, function(err, data) {
+
   fs.writeFileSync('routes.json', JSON.stringify({ routes: data }, null, 2))
   // Writes { "routes": [ "loading", "error", "index" ] }
+
 })
 ```
 
