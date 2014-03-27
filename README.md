@@ -41,6 +41,7 @@ phantomEval('http://emberjs.com/', function() {
 
 ## Release History
 
+* 0.1.1 - A better way to find the wrapping function
 * 0.1.0 - initial release
 
 ## License
