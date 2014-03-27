@@ -1,6 +1,6 @@
 # phantom-eval [![Build Status](https://travis-ci.org/shama/phantom-eval.svg)](https://travis-ci.org/shama/phantom-eval)
 
-> Evaluate code on a URL with PhantomJS
+> Evaluate code on an URL with PhantomJS
 
 [![NPM](https://nodei.co/npm/phantom.png)](https://nodei.co/npm/phantom/)
 
