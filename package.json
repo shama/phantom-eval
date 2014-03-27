@@ -1,0 +1,44 @@
+{
+  "name": "phantom-eval",
+  "description": "Evaluate code on a URL with PhantomJS",
+  "version": "0.1.0",
+  "homepage": "https://github.com/shama/phantom-eval",
+  "author": {
+    "name": "Kyle Robinson Young",
+    "email": "kyle@dontkry.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shama/phantom-eval.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shama/phantom-eval/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shama/phantom-eval/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "dependencies": {
+    "phantomjs": "^1.9.7-1",
+    "falafel": "^0.3.1"
+  },
+  "devDependencies": {
+    "tape": "^2.12.0",
+    "st": "^0.4.1"
+  },
+  "files": [
+    "index.js",
+    "phantom.js",
+    "LICENSE-MIT"
+  ],
+  "keywords": [
+    "phantomjs",
+    "eval"
+  ]
+}
