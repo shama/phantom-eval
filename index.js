@@ -11,7 +11,7 @@ module.exports = function(url, fn, done) {
     return (
       node.type === 'FunctionExpression' &&
       node.parent &&
-      node.parent.arguments[0] &&
+      Array.isArray(node.parent.arguments) &&
       node.parent.arguments[0].value === key
     )
   }
