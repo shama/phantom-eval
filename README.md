@@ -1,4 +1,4 @@
-# phantom-eval
+# phantom-eval [![Build Status](https://travis-ci.org/shama/phantom-eval.svg)](https://travis-ci.org/shama/phantom-eval)
 
 > Evaluate code on a URL with PhantomJS
 
