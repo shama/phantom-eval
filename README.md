@@ -74,6 +74,7 @@ phantomEval('http://website.com', { proxy: 'http://proxyaddr.com:8080' }, functi
 
 ## Release History
 
+* 1.0.0 - Support options to pass to phantomjs. Support for behind a proxy (@kauegimenes).
 * 0.1.2 - Fix for semicolons and better serialization
 * 0.1.1 - A better way to find the wrapping function
 * 0.1.0 - initial release

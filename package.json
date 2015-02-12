@@ -1,7 +1,7 @@
 {
   "name": "phantom-eval",
   "description": "Evaluate code on an URL with PhantomJS",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "homepage": "https://github.com/shama/phantom-eval",
   "author": {
     "name": "Kyle Robinson Young",
