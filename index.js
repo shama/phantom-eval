@@ -3,7 +3,8 @@ var binPath = require('phantomjs').path
 var falafel = require('falafel')
 var execFile = require('child_process').execFile
 
-module.exports = function(url, fn, done) {
+module.exports = function(url, fn , done, proxyConfig) {
+  var proxy = proxyConfig == undefined ? '' : '--proxy=' + proxyConfig;
   var script = path.join(__dirname, 'phantom.js')
   var key = '--- ' + +Date.now() + ' ---'
 
@@ -31,7 +32,7 @@ module.exports = function(url, fn, done) {
   
   // Serialize and run phantomjs
   fn = JSON.stringify(fn.toString())
-  execFile(binPath, [script, url, fn, key], function(err, stdout, stderr) {
+  execFile(binPath, [proxy,script, url, fn, key], function(err, stdout, stderr) {
     if (err || stderr) return done(err || new Error(stderr), null, stdout)
     var data = stdout.split(key).slice(1, -1).join('').replace(/\n|\r\n/g, '')
     try {
