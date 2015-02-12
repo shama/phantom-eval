@@ -25,8 +25,9 @@
     "test": "node test/test.js"
   },
   "dependencies": {
-    "phantomjs": "^1.9.7-1",
-    "falafel": "^0.3.1"
+    "dargs": "^4.0.0",
+    "falafel": "^0.3.1",
+    "phantomjs": "^1.9.7-1"
   },
   "devDependencies": {
     "tape": "^2.12.0",
