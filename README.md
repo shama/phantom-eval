@@ -59,6 +59,19 @@ phantomEval('http://emberjs.com/', function() {
 })
 ```
 
+### Passing in options to phantomjs
+
+Such as if you're behind a proxy:
+
+``` js
+var phantomEval = require('phantom-eval')
+phantomEval('http://website.com', { proxy: 'http://proxyaddr.com:8080' }, function() {
+  // Code to eval
+}, function(err, data) {
+  // Were all done
+})
+```
+
 ## Release History
 
 * 0.1.2 - Fix for semicolons and better serialization
